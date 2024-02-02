@@ -8,7 +8,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 string connectionString = builder.Configuration.GetConnectionString("ConnectionCompany") ??
                        throw new InvalidOperationException("Connection string 'ConnectionCompany' not found.");
-builder.Services.AddDbContext<Context>(options => options.UseSqlite(connectionString));
+builder.Services.AddDbContext<Context>(options => options.UseNpgsql(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
