@@ -1,0 +1,18 @@
+﻿services:
+  electronicqueueservice:
+    image: electronicqueueservice
+    build:
+      context: .
+      dockerfile: ElectronicQueueService/Dockerfile
+  postgresCompany:
+    restart: always
+    image: postgres:16.1
+    environment:
+      POSTGRES_DB: "ElectronicQueueService_Company"
+      POSTGRES_USER: "artem"
+      POSTGRES_PASSWORD: "1827"
+      PGDATA: /data/postgres
+    ports:
+      - "6551:5432"
+    volumes:
+      - ./postgresCompany-open-in-db-data:/var/lib/postgresql/data/
