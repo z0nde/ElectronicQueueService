@@ -1,0 +1,24 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  electronicqueueservice:
+    build:
+      context: "C:\\Users\\artem\\RiderProjects\\ElectronicQueueService"
+      dockerfile: "ElectronicQueueService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/ElectronicQueueService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net7.0/ElectronicQueueService.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+      NUGET_PACKAGES: "C:\\Users\\artem\\.nuget\\packages"
+      NUGET_FALLBACK_PACKAGES: "C:\\Users\\artem\\.nuget\\packages"
+    image: "electronicqueueservice:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\artem\\.nuget\\packages:/root/.nuget/fallbackpackages"
+    - "C:\\Users\\artem\\RiderProjects\\ElectronicQueueService\\ElectronicQueueService:/app:rw"
+    - "C:\\Users\\artem\\RiderProjects\\ElectronicQueueService:/src:rw"
+    working_dir: "/app"
