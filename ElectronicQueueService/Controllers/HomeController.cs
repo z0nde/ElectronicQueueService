@@ -4,11 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using ElectronicQueueService.Models;
 
 namespace ElectronicQueueService.Controllers;
-
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private Context _contextDb;
+    private readonly Context _contextDb;
     
     public HomeController(ILogger<HomeController> logger, Context context)
     {

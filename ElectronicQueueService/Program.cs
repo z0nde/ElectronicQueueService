@@ -1,19 +1,20 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using ElectronicQueueService.Data;
 using ElectronicQueueService.DB;
+using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 string connectionString = builder.Configuration.GetConnectionString("ConnectionCompany") ??
                        throw new InvalidOperationException("Connection string 'ConnectionCompany' not found.");
-builder.Services.AddDbContext<Context>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<Context>(optionsAction => optionsAction.UseNpgsql(connectionString));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<Context>();
 builder.Services.AddControllersWithViews();
+
+
 
 WebApplication app = builder.Build();
 
