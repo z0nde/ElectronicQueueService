@@ -5,7 +5,7 @@
       context: .
       dockerfile: ElectronicQueueService/Dockerfile
     ports:
-      - "8080:80"
+      - "443:80"
   postgresCompany:
     restart: always
     image: postgres:latest
