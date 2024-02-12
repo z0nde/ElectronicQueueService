@@ -10,9 +10,9 @@
     restart: always
     image: postgres:latest
     environment:
-      POSTGRES_DB: "ElectronicQueueService_Company"
-      POSTGRES_USER: "artem"
-      POSTGRES_PASSWORD: "1827"
+      POSTGRES_DB: "ElectronicQueueService"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
       PGDATA: /data/postgres
     ports:
       - "5432:5432"
